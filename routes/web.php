@@ -1,8 +1,9 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use Illuminate\Http\Request;
 
-// =========================== Get route example ==================================
+// =========================== GET route example ==================================
 Route::get('/', function () {
     return view('home');
 });
@@ -33,3 +34,17 @@ Route::prefix("company")->group(function () {
     });
 });
 
+
+// =========================== POST route example ==================================
+Route::get('/formsubmitted', function (Request $request) {
+
+    $request->validate([
+        'fullname' => 'required|in:3|max:30',
+        'email' => 'required|in:3|max:30|email',
+    ]);
+
+    $fullname = $request->input("fullname");
+    $email = $request->input("email");
+
+    return "Your full name is {$request->input('fullname')}, and your email is $email";
+})->name("formsubmitted");
