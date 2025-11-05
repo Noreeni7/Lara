@@ -1,21 +1,15 @@
-<!DOCTYPE html>
-<html lang="en">
+@extends('layout.default')
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+@section('header')
+<h1>This is the header!</h1>
 
-    @vite('resources/css/app.css')
-    @vite('resources/js/app.js')
+@include('sidemenu')
+@endsection
 
-</head>
+@section('maincontent')
+<h1>Home</h1>
 
-<body>
-    <h1>Home</h1>
-
-    <div class="container">
+<div class="container">
     <form action="{{ route('formsubmitted')}}" method="post">
         @csrf
         <label for="fullname" class="form-label">Full name:</label>
@@ -26,8 +20,9 @@
         <br><br>
         <button type="submit">Submit</button>
     </form>
-    </div>
+</div>
+@endsection
 
-</body>
-
-</html>
+@section('footer')
+<h1>This is the footer</h1>
+@endsection
