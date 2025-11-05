@@ -15,6 +15,7 @@
 <body>
 
     <header>
+        <img src="{{asset('images/search-icon.webp')}}" alt="">
         @yield('header')
     </header>
 
