@@ -49,3 +49,6 @@ Route::get('/formsubmitted', function (Request $request) {
 
     return "Your full name is {$request->input('fullname')}, and your email is $email";
 })->name("formsubmitted");
+
+Route::resource('posts', PostController::class);
+
